@@ -10,6 +10,6 @@
 .item a {color: rgb(255, 255, 255);
 text-decoration: none};
 
-.item a.active {
+.item a.activeLink {
   color: gold;
 }
