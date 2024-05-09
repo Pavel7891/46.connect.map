@@ -4,7 +4,7 @@ grid-template-columns: 2fr 8fr;
 }
 
 .dialoguesItems {
-
+color: white;
 }
 
 .dialogue {
@@ -15,8 +15,9 @@ padding: 10px;
     color: yellow;
 }
 
-.messages {
+.messagesItems {
 padding: 10px;
+color: white;
 }
 
 .message {

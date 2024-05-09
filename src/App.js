@@ -45,6 +45,10 @@ export default App;
 оборачиваем в тег <BrowserRouter> </BrowserRouter>
 Далее, описания путей к компонентам ( т.е.Route path = ...)?
 прописывается внутри тега  Routes.
+Это работает так: если Route видит путь (path) равен 
+"/dialogues"? он автоматически подгружает компоненту 
+<Dialogues/>. Если path изменится на что-то другое, то
+компонента не отрисуется.
 Предварительно надо прописать импорт данных элементов
 import {BrowserRouter, Routes Route} from 'react-router-dom'
 */
