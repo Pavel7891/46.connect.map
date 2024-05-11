@@ -4,8 +4,8 @@ import cl from './Post.module.css';
 
 const Post =(props)=> { 
 
-      //debugger;
       //console.log(props.message);
+      
       return(
 <div className={cl.item}>
       <img src="https://cdn.fishki.net/upload/post/201601/03/1800195/post-37-1100634040.jpg"/>
