@@ -42,16 +42,5 @@ debugger;
 
 export default Dialogues;
 
- /* урок 29, начало в App.js продолжение^
- Здесь перемен, по сравнению с предыдущим
- уроком, нет. 
- Здесь props.dialogues соответствует переменной
- dialogues = {posts.dialogues} 
- (см. DialoguesItem.jsx),
- В свою очередь, переменная dialogues задана в 
- App.js как dialogues = {props.appState.dialoguesArray},
-где appState -- это переменная, в которую присвоен
-объект state, содержащий в себе наши массивы, 
-включая dialoguesArray.
-*/
+ 
  

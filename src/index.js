@@ -1,10 +1,9 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import state from './redux/state';
+import { BrowserRouter } from 'react-router-dom';
 
 // let postsArray = [
 //     {id: 1, message: "Hi, how are you ?", likeCount:10},
@@ -35,10 +34,10 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <StrictMode>
+  <BrowserRouter>
     <App appState = {state}/>
     {/* <App posts = {postsArray} dialogues = {dialoguesArray} messages = {messagesArray}/> */}
-  </StrictMode>
+  </BrowserRouter>
 );
  
 /* Данные bll следует выносить в самый 

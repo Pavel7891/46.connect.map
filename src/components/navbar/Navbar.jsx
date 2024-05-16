@@ -20,15 +20,15 @@ const Navbar =()=> {
       <NavLink to="/dialogues">Messages</NavLink> 
       </div>
     <div className ={classes.item}>
-      {/* <a>News</a> */}
+      <a>News</a>
       {/* <NavLink to "">News</NavLink> */}
       </div>
     <div className ={classes.item}>
-      {/* <a>Music</a> */}
+      <a>Music</a>
       {/* <NavLink to "">Music</NavLink> */}
       </div>
       <div className ={classes.item}>
-        {/* <a>Settings</a> */}
+        <a>Settings</a>
         {/* <NavLink to "">Settings</NavLink> */}
       </div>
   </nav>)

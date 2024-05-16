@@ -17,7 +17,4 @@ const DialogueItem  = (props) => {
 
  export default DialogueItem;
 
- /* По уроку 29.
- Вместо props.dialogues теперь надо 
- писать props.appState dialogues  
- */ 
+ 
