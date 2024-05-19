@@ -1,6 +1,7 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "../post/Post";
+import { addPost } from "../../../../redux/state";
 
 // let postsArray = [
 //   {id: 1, message: "Hi, how are you ?", likeCount:10},
@@ -25,10 +26,14 @@ const MyPosts =(props)=> {
 
 let newPostElement = React.createRef();
 
+ 
+
 let addPost = () => {
   debugger;
- let text = newPostElement.current.value;
- alert(text);
+ let text =`New Post: ${newPostElement.current.value}`;
+ //alert(text);
+ props.addPost(text)
+  
 }
 
     return (
@@ -66,15 +71,27 @@ export default MyPosts;
  как в классическом JS, мы имеем в Реакте такую
  конструкцию, в которой дается взятие элемента по 
  ссылке:
- let newPostElement = React.createRef('newPost')
+ let newPostElement = React.createRef()
 
  Затем мы привязываем новый создоваемый элемент 
  к определенному  html-тегу, где прописвывем ссылку
  на этот элемент в виде атрибута:
  <textarea ref ={newPostElement}></textarea>
- И затем прописываем вывод нового элемента в поле 
- ввода, таким образом:
+ То есть, newPostElement -- это то, что мы вводим 
+ в поле ввода для textarea.
+ И затем прописываем вывод нового элемента 
+ в всплывающем окне, таким образом:
  let text = newPostElement.current.value;
- где text -- то, что мы вводим в поле ввода 
- для textarea, input.
+ где text -- то, что у нас получается при выполнении
+ функции addPost и, соответственно, выходит в окне
+ alert.
  */
+
+// изменим вводные данные для addPost, как в уроке 32.
+/* вместо вывода нового поста в alert, как было преждеб
+пропишем props.addPost(text), т.е. дадим функцию addPost
+так, как она записана в state.js (примем ее здесь как
+callback-function)
+*/
+// Однако добавления новых постов нет. Почему ?
+// Далее см. урок 33.

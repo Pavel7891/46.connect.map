@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import state from './redux/state';
+import { addPost } from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
 
 // let postsArray = [
@@ -33,9 +34,11 @@ import { BrowserRouter } from 'react-router-dom';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+addPost ("Pavel Docenko");
+
 root.render(
   <BrowserRouter>
-    <App appState = {state}/>
+    <App state = {state} addPost = {addPost}/>
     {/* <App posts = {postsArray} dialogues = {dialoguesArray} messages = {messagesArray}/> */}
   </BrowserRouter>
 );
@@ -68,3 +71,16 @@ DialoguesArray, MessagesArray.
    т.е. наши три массива с данными.
    Далее см. App.js
   */
+ /*Урок 32:
+ Пропишем импорт функции addPost
+ из redux/state, в таком виде {addPost}
+ Если импортируем без дефолта, то 
+ ее название должно быть таким же, что
+ и в файле, откуда мы экспортируем ф-ю.
+ Передадим эту ф-ю в пропсах для App.js,
+ аналогично нашему объекту state.
+ addPost = {addPost}
+ Далее в App.js
+ */
+
+ 
