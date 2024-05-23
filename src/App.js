@@ -6,10 +6,10 @@ import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile';
 import Dialogues from './components/dialogues/Dialogues';
 import { Routes, Route } from 'react-router-dom';
-import { addPost } from './redux/state';
+//import { addPost } from './redux/state';
 
  const App = (props) => {
-debugger;
+
  return (
  
   <div className="app-wrapper">

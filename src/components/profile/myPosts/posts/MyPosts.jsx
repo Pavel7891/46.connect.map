@@ -1,7 +1,7 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "../post/Post";
-import { addPost } from "../../../../redux/state";
+//import { addPost } from "../../../../redux/state";
 
 // let postsArray = [
 //   {id: 1, message: "Hi, how are you ?", likeCount:10},
@@ -28,12 +28,11 @@ let newPostElement = React.createRef();
 
  
 
-let addPost = () => {
+let addMessage = () => {
   debugger;
  let text =`New Post: ${newPostElement.current.value}`;
- //alert(text);
- props.addPost(text)
-  
+ props.addPost(text);
+ newPostElement.current.value = '';
 }
 
     return (
@@ -44,7 +43,7 @@ let addPost = () => {
                <textarea ref = {newPostElement} ></textarea>
             </div>
             <div>
-               <button onClick = {addPost} > 
+               <button onClick = {addMessage} > 
                Add button
                </button>
             </div>     
@@ -94,4 +93,13 @@ export default MyPosts;
 callback-function)
 */
 // Однако добавления новых постов нет. Почему ?
+
+/*Ставим debugger внутрик функции  addPost в компонентах 
+state.js и MyPosts.jsx. И, при вводе в textarea нового 
+текста видим в консоли выполнение всем этапов функций 
+( создание поста, прохождение функции-колбэка addPost
+  через пропсы от state.js до MyPosta.jsx ), 
+  т. е. все до этапа "пушинга" в новый массив -- этого не
+  происходит.
+*/
 // Далее см. урок 33.
