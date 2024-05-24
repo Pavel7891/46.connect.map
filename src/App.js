@@ -20,10 +20,12 @@ import { Routes, Route } from 'react-router-dom';
       <Routes>
 
       <Route path = "/profile" 
-      element ={ <Profile posts ={props.state.profilePage.postsArray} addPost = {props.addPost} />}/>
+      element ={ <Profile profilePage ={props.state.profilePage} 
+      addPost = {props.addPost}
+      updateNewPost = {props.updateNewPost} />}/>
       <Route
        path = "/dialogues" 
-      element={<Dialogues dialogues = {props.state.profilePage.dialoguesArray} 
+      element={<Dialogues dialogues = {props.state.dialoguesArray} 
       messages = {props.state.messagesArray}/>}/>
       </Routes>     
      
@@ -35,16 +37,7 @@ import { Routes, Route } from 'react-router-dom';
 
 export default App;
 
-// Урок 32:
-/* начало в index.js, 32
-опрокидываем в пропсах для Profile
-функцию добавления новых постов addPost
-аналогичным ( как в index.js) способом.
-И так до MyPosts.jsx.
-(импорт доводим до Post.jsx, где 
-эта функция прописана).
-Далее см. MyPosts.jsx
-*/
+ 
  
 
 
