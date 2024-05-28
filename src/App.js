@@ -22,7 +22,8 @@ import { Routes, Route } from 'react-router-dom';
       <Route path = "/profile" 
       element ={ <Profile profilePage ={props.state.profilePage} 
       addPost = {props.addPost}
-      updateNewPost = {props.updateNewPost} />}/>
+      updateNewPost = {props.updateNewPost} 
+      />}/>
       <Route
        path = "/dialogues" 
       element={<Dialogues dialogues = {props.state.dialoguesArray} 

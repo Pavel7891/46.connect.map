@@ -7,7 +7,7 @@ let state = {
             {id: 2, message: "I've got some news for you", likeCount: 20},
             {id: 3, message: "Hope, you are lucky", likeCount: 25} 
           ],
-        newPostText:'new text',
+        newPostText:'kamasutra',
        
         },
 
@@ -28,6 +28,8 @@ let state = {
         ],
 
 }
+
+window.state = state;
 
 export let addPost = ()=> { 
     //debugger;
@@ -79,3 +81,8 @@ state.profilePage.newPostText т.е. текст,
 т.е. в  state.js.
 */
 
+/*в ф-и addPost пропишем обнулении поля
+ввода при выполнении данной функции, 
+т.е. обнуление значения message:
+state.profilePage.newPostText = '';
+*/

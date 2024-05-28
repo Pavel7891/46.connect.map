@@ -21,20 +21,27 @@ const MyPosts =(props)=> {
 
 
 let addMessage = () => {
-  
- //let text =`New Post: ${newPostElement.current.value}`;
- // props.addPost(text);
 
- props.addPost();
- // обнуление текста в поле ввода после рендера.
- // props.updateNewPost('');
+  props.addPost();
 }
+// let addMessage = () => {
+  
+//  let text =`New Post: ${newPostElement.current.value}`;
+//  props.addPost(text);
+//  props.updateNewPost('');
+// }
+
 
 let onPostChange = () => {
-  let text =`New Post: ${newPostElement.current.value}`;
-  props.updateNewPost(text);
+
+let text =newPostElement.current.value;
+props.updateNewPost(text);
   console.log(text);
 }
+
+// let onPostChange = ()=> {
+//   console.log('Pavel Docenko')
+// }
 
     return (
         <div className = {st.postsBlock} >
@@ -43,8 +50,8 @@ let onPostChange = () => {
             <div>
                <textarea 
                ref = {newPostElement} 
-               value = {props.NewPostText}
-               onChange = {onPostChange}
+              value = {props.newPostText}
+              onChange = {onPostChange}
                />
             </div>
             <div>
@@ -91,6 +98,17 @@ text принимается как newText (см. state.js),
 и, соответственно, перерисовка (ререндер) 
 всего компонента ui.
 */
-
+/* Обнуление введенного текста: мы можем обнулить
+поле ввода по нажатию кнопки, и, соответствнно, 
+действию addPost, только через функцию обновления
+updeteNewPost. Поэтому в теле ф-и addPost пропишем
+обнуление ( пустую строку) для вызова ф-и updateNewPost.
+Синтаксис такой:
+props.updateNewPost('');
+Однако, если ф-я addPost в этом файле только вызывается,
+а вся ее локига прописана в файле state.js, логичнее 
+перенести туда обнуление поля ввода.
+Далее см. файл state.js
+*/
  
 
