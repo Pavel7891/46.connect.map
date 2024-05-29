@@ -1,4 +1,9 @@
-import { rerenderEntireTree } from "../render";
+//import { rerenderEntireTree } from "../render";
+
+
+let rerenderEntireTree =()=> {
+    console.log('Render has been changed')
+}
 
 let state = {
     profilePage: {
@@ -31,7 +36,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = ()=> { 
+export const addPost = ()=> { 
     //debugger;
     let newPost = {
         id: state.profilePage.newPostText.id,
@@ -43,46 +48,18 @@ export let addPost = ()=> {
     rerenderEntireTree(state);
 }
 
-export let updateNewPost = (newText) => {
+export const updateNewPost = (newText) => {
   state.profilePage.newPostText = newText;
   console.log(newText);
   rerenderEntireTree(state);
 }
 
+export const subscriber = (observer) => {
+    rerenderEntireTree = observer;
+}
+
 export default state;
 
-/*Урок 34
-Добавим в profilePage, помимо postsArray,
-еще одно свойство -- newPostText. Это будет
-значение для поля ввода textarea.
-Его также передадим в пропсах до 
-файла Posts.jsx
-*/
-/* Добавим в файл state также функцию
-перерисовки данных,updateNewPost, которая 
-срабатывает каждый раз при перерисовке 
-компонента ui и изменяет наш state.js.
-Эта функция срабатывает при действии
-обработчика событий onChange, атрибута
-для поля ввода textarea; и затем значение
-value, введенное в поле ввода ( каждый символ)
-отправляется в state.js.
-Т.е. при введении любого символа в textarea и, 
-следовательно, запуском ф-и onPostChange, 
-запускается также функция updateNewPost; 
-она передается в MyPosts.jsx через пропсы, 
-аналогично  addPost.
-В параметры ф-и updateNewPost приходит newText. 
-В эту переменную присваивается 
-state.profilePage.newPostText т.е. текст, 
-вводимый в поле ввода textarea (в файле MyPosts.jsx
-этот параметр называется text ) и после 
-нажатия кнопки уходящий в bll, 
-т.е. в  state.js.
-*/
 
-/*в ф-и addPost пропишем обнулении поля
-ввода при выполнении данной функции, 
-т.е. обнуление значения message:
-state.profilePage.newPostText = '';
-*/
+
+
