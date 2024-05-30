@@ -21,7 +21,7 @@ const MyPosts =(props)=> {
 
 
 let addMessage = () => {
-
+debugger;
   props.addPost();
 }
 // let addMessage = () => {

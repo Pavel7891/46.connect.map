@@ -22,7 +22,7 @@ import Message from './message/Message';
 
 
 const Dialogues =(props) => {
-debugger;
+//debugger;
     let dialoguesItems = props.dialogues.map( 
         dialogueItem => 
         <DialogueItem name = {dialogueItem.name} id = {dialogueItem.id} key = {dialogueItem.id}/>)
