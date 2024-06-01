@@ -21,8 +21,11 @@ import { Routes, Route } from 'react-router-dom';
 
       <Route path = "/profile" 
       element ={ <Profile profilePage ={props.state.profilePage} 
-      addPost = {props.addPost}
-      updateNewPost = {props.updateNewPost} 
+
+      dispatch = {props.dispatch}
+
+      //  addPost = {props.addPost}
+      //  updateNewPost = {props.updateNewPost} 
       />}/>
       <Route
        path = "/dialogues" 

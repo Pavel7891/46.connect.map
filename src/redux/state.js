@@ -35,60 +35,60 @@ let store  = {
     _callSubscriber () {
         console.log('Render has been changed')
     },
+
+    subscriber (observer) {
+        this._callSubscriber = observer;
+    },
+    
+
+    // Методы, изменяющие state.
+    
+    // addPost () { 
+     
+    //     let newPost = {
+    //         id: this._state.profilePage.newPostText.id,
+    //         message: this._state.profilePage.newPostText,
+    //         likeCount: 0
+    //     }
+    //     this._state.profilePage.postsArray.push(newPost);
+    //     this._state.profilePage.newPostText = '';
+    //     this._callSubscriber(this._state);
+    // },
+    
+//    updateNewPost  (newText) {
+//       this._state.profilePage.newPostText = newText;
+//       console.log(newText);
+//       this._callSubscriber(this._state);
+//     },
     
     
-    addPost () { 
-        debugger;
-       
+
+    dispatch (action) {
+debugger;
+if (action.type === 'ADD-POST')
+    { 
         let newPost = {
-            id: this._state.profilePage.newPostText.id,
+            id: 5,
             message: this._state.profilePage.newPostText,
             likeCount: 0
         }
         this._state.profilePage.postsArray.push(newPost);
         this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);  
+    } 
+    else if (action.type === 'UPDATE-NEW-POST-TEXT') 
+        {
+        this._state.profilePage.newPostText = action.newText;
+        console.log(action.newText);
         this._callSubscriber(this._state);
-    },
-    
-   updateNewPost  (newText) {
-      this._state.profilePage.newPostText = newText;
-      console.log(newText);
-      this._callSubscriber(this._state);
-    },
-    
-    subscriber (observer) {
-        this._callSubscriber = observer;
+    }
     }
 }
 
 
 export default store;
 
-/*Задача -- упаковать все данные, т.е. объекты из state и функции--
-в единый объект. Переводим  объект state в  _state. Функции  
-прописываем как методы объекта.
-Обратим внимание: вместо названия родительского объекта, как мы
-писали ренее,  используется слово this, которое означает ссылку 
-на родительский объект, т.е., в данном случае, store.
-чтобы вернуть значение объекта _state, создадим 'метод-геттер',
-назовем его getState. Запись будет такая: 
-getState () {
-        return this._state;
-    }
-и затем мы используем дальше, внутри родительского 
-объекта store, в качестве ссылки на него 
-запись this._state.
 
-Вместо функции rerenderEntireTree назовем наш метод _callSubscriber, 
-его также пишем с нижнем подчеркиванием, т.к. метод предназначен 
-только для использования внутри объекта  store.
-Этот метод, напомним, получает в качестве callback функцию
-rerenderEntireTree из App.js, здесь она приходит в параметры
-как observer. Cоответственно, callSubscriber срабатывает каждый раз
-при действии функции rerenderEntireTree, т.е. при отрисовке объекта.
-
-Далее см. index.js
-*/
 
 
 

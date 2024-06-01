@@ -20,28 +20,32 @@ const MyPosts =(props)=> {
     postItem =><Post id = {postItem.id} message ={postItem.message} likeCount = {postItem.likeCount} key = {postItem.id}/>);
 
 
-let addMessage = () => {
-debugger;
-  props.addPost();
-}
 // let addMessage = () => {
-  
-//  let text =`New Post: ${newPostElement.current.value}`;
-//  props.addPost(text);
-//  props.updateNewPost('');
+// debugger;
+//   props.addPost();
 // }
 
+
+// let onPostChange = () => {
+
+// let text =newPostElement.current.value;
+// props.updateNewPost(text);
+//   console.log(text);
+// }
+
+let addMessage = () => {
+  props.dispatch({type:"ADD-POST"})
+}
 
 let onPostChange = () => {
+  let text = newPostElement.current.value;
+props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
 
-let text =newPostElement.current.value;
-props.updateNewPost(text);
+// let action = {type:"UPDATE-NEW-POST-TEXT", newText: text};
+// props.dispatch(action)
+
   console.log(text);
 }
-
-// let onPostChange = ()=> {
-//   console.log('Pavel Docenko')
-// }
 
     return (
         <div className = {st.postsBlock} >
