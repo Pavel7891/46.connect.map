@@ -1,16 +1,19 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "../post/Post";
-//import { addPost } from "../../../../redux/state";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../../redux/state";
 
-// let postsArray = [
-//   {id: 1, message: "Hi, how are you ?", likeCount:10},
-//   {id: 2, message: "I've got some news for you", likeCount: 20},
-//   {id: 3, message: "Hope, you are lucky", likeCount: 25} 
-// ]
+// let addPostActionCreator = () => {
+//   return (
+//   {type: 'ADD-POST'}
+//   )
+// }
 
-// let postsItems =  postsArray.map(
-//   postItem =><Post id = {postItem.id} message ={postItem.message} likeCount = {postItem.likeCount}/>)
+// let updateNewPostTextActionCreator = (text)=> {
+//   return (
+//     {type:'UPDATE-NEW-POST-TEXT', newText: text}
+//   )
+// }
 
 const MyPosts =(props)=> {
 
@@ -20,30 +23,18 @@ const MyPosts =(props)=> {
     postItem =><Post id = {postItem.id} message ={postItem.message} likeCount = {postItem.likeCount} key = {postItem.id}/>);
 
 
-// let addMessage = () => {
-// debugger;
-//   props.addPost();
-// }
-
-
-// let onPostChange = () => {
-
-// let text =newPostElement.current.value;
-// props.updateNewPost(text);
-//   console.log(text);
-// }
-
 let addMessage = () => {
-  props.dispatch({type:"ADD-POST"})
+  //props.dispatch({type:"ADD-POST"})
+  let action = addPostActionCreator ();
+props.dispatch(action)
 }
 
 let onPostChange = () => {
   let text = newPostElement.current.value;
-props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
+//props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
 
-// let action = {type:"UPDATE-NEW-POST-TEXT", newText: text};
-// props.dispatch(action)
-
+let action = updateNewPostTextActionCreator (text);
+props.dispatch(action)
   console.log(text);
 }
 
@@ -76,5 +67,13 @@ props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
 export default MyPosts;
 
 
- 
+ /* Пояснение к строкам 11, 13, 35:
+  text -- это изменяемый параметр ( то, что 
+  вводится в textarea ), поэтому при вызове 
+  функции updateNewPostTextActionCreator внутри
+  ф-и onPostChange мы передаем его в параметры
+  этой созданной функции.
+ )
+
+ */
 
