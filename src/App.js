@@ -20,7 +20,8 @@ import { Routes, Route } from 'react-router-dom';
       <Routes>
 
       <Route path = "/profile" 
-      element ={ <Profile profilePage ={props.state.profilePage} 
+      element ={ <Profile 
+        profilePage ={props.state.profilePage} 
 
       dispatch = {props.dispatch}
 
@@ -29,8 +30,12 @@ import { Routes, Route } from 'react-router-dom';
       />}/>
       <Route
        path = "/dialogues" 
-      element={<Dialogues dialogues = {props.state.dialoguesArray} 
-      messages = {props.state.messagesArray}/>}/>
+      element={<Dialogues 
+      dialogues = {props.state.dialoguesPage.dialoguesArray} 
+      messages = {props.state.dialoguesPage.messagesArray}
+      newMessageBody = {props.state.dialoguesPage.newMessageBody}
+      dispatch = {props.dispatch}
+      />}/>
       </Routes>     
      
     </div>
