@@ -2,7 +2,7 @@ import React from 'react';
 import st from './Dialogues.module.css';
 import DialogueItem from './dialogueItem/DialogueItem';
 import Message from './message/Message';
-import { addNewMessageCreator, updateNewMessageBodyCreator } from '../../redux/state';
+import { addNewMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogues-reducer';
 
 // const DialoguesArray = [
 //     {id:1, name:'Pavel'},
