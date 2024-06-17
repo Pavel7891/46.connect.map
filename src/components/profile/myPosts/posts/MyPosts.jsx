@@ -1,7 +1,7 @@
 import React from "react";
 import st from './MyPosts.module.css';
 import Post from "../post/Post";
-import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/profile-reducer'
+//import { addPostCreator, updateNewPostTextCreator } from '../../../../redux/profile-reducer'
 
 // let addPostActionCreator = () => {
 //   return (
@@ -25,17 +25,21 @@ const MyPosts =(props)=> {
 
 let addMessage = () => {
   
+  props.addPost();
+
   //props.dispatch({type:"ADD-POST"})
-  let action = addPostCreator ();
-props.dispatch(action)
+//   let action = addPostCreator ();
+// props.dispatch(action)
 }
 
-let onPostChange = () => {
-  let text = newPostElement.current.value;
-//props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
+let postChange = () => {
 
-let action = updateNewPostTextCreator (text);
-props.dispatch(action)
+  let text = newPostElement.current.value;
+  props.updateNewPostText(text);
+
+//props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
+// let action = updateNewPostTextCreator (text);
+// props.dispatch(action)
   console.log(text);
 }
 
@@ -47,7 +51,7 @@ props.dispatch(action)
                <textarea 
                ref = {newPostElement} 
               value = {props.newPostText}
-              onChange = {onPostChange}
+              onChange = {postChange}
                />
             </div>
             <div>
@@ -64,17 +68,10 @@ props.dispatch(action)
         </div>      
         </div>)
 }
-
+ 
 export default MyPosts;
 
 
- /* Пояснение к строкам 11, 13, 35:
-  text -- это изменяемый параметр ( то, что 
-  вводится в textarea ), поэтому при вызове 
-  функции updateNewPostTextActionCreator внутри
-  ф-и onPostChange мы передаем его в параметры
-  этой созданной функции.
- )
 
- */
+ 
 

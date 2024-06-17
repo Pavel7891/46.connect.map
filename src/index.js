@@ -13,15 +13,14 @@ const root = createRoot(container);
 
 
  let rerenderEntireTree =(state) => {
-    
+    debugger;
  root.render(
 <BrowserRouter>
       <App 
       state = {state}    
       dispatch = {store.dispatch.bind(store)}
-
-      //addPost = {store.addPost.bind(store)}
-      //updateNewPost = {store.updateNewPost.bind(store)}
+      addPost = {store.addPost.bind(store)}
+      updateNewPost = {store.updateNewPost.bind(store)}
       />
     </BrowserRouter>
  )
