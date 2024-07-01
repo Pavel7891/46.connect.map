@@ -9,8 +9,8 @@ import { Routes, Route } from 'react-router-dom';
 import DialoguesContainer from './components/dialogues/DialoguesContainer';
 //import { addPost } from './redux/state';
 
- const App = (props) => {
-debugger;
+ const App = () => {
+
  return (
  
   <div className="app-wrapper">
@@ -21,23 +21,14 @@ debugger;
       <Routes>
       <Route path = "/profile" 
       element ={ <Profile 
-      state = {props.state}
-        // profilePage ={props.state.profilePage} 
-      dispatch = {props.dispatch}
-      addPost = {props.addPost}
-      updateNewPost = {props.updateNewPost} 
+      // state = {props.state}
+      // dispatch = {props.dispatch}
       />}/>
       <Route
        path = "/dialogues" 
       element={<DialoguesContainer 
-        state = {props.state}
-      // dialogues = {props.state.dialoguesPage.dialoguesArray} 
-      // messages = {props.state.dialoguesPage.messagesArray}
-      //newMessageBody = {props.state.dialoguesPage.newMessageBody}
-      dispatch = {props.dispatch}
-    newMessageBody = {props.newMessageBody}
-      addMessage = {props.addPost}
-      updateNewMessage = {props.updateNewPost}
+      //   state = {props.state}
+      // dispatch = {props.dispatch}
       />}/>
       </Routes>     
      

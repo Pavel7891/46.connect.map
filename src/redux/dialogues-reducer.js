@@ -26,11 +26,6 @@ else if // action.type === 'UPDEATE-NEW-MESSAGE-BODY'
 
 export default dialoguesReducer;
 
-/* Здесь вся  логика аналогична прописанной для  
-profilePage в файле profile-reducer, т.е. пришедший
-в пропсах state соотвествует ранее написанному в 
-state.js объекту this._state.dialoguesPage
-*/
 
 export const addNewMessageCreator  = ()=> {
     return(

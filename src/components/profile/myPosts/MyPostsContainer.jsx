@@ -1,38 +1,39 @@
 import React from "react";
 import MyPosts from './posts/MyPosts';
 import { addPostCreator, updateNewPostTextCreator } from '../../../redux/profile-reducer'
+import StoreContext from "../../../StoreContext";
 
-const MyPostsContainer =(props)=> {
+const MyPostsContainer =()=> {
+  
+  return (
 
+<StoreContext.Consumer>
+  { 
+    (store) => {
 
-let onAddMessage = () => {
-  props.dispatch(addPostCreator());
-}
+      let state = store.getState().profilePage;
+              
+      let onAddMessage = () => {
+      store.dispatch(addPostCreator());
+ 
+    }
+                
+      let onPostChange = (text) => {
+      store.dispatch(updateNewPostTextCreator(text))
+    console.log(text);
+      }
 
-let onPostChange = (text) => {
-  props.dispatch(updateNewPostTextCreator(text));
+  return <MyPosts
+      updateNewPostText = {onPostChange}
+      addPost = {onAddMessage}
+      posts = { state.postsArray}
+      newPostText = {state.newPostText}/>
+      }
+    }
+</StoreContext.Consumer>
+)}
 
-}
-
-    return (
-        <div> 
-         <MyPosts
-         updateNewPostText = {onPostChange}
-         addPost = {onAddMessage}
-        posts = { props.state.profilePage.postsArray}
-        newPostText = {props.state.profilePage.newPostText}
-         />   
-        </div>)
-}
 
 export default MyPostsContainer;
 
-/*Таким образом, в контейнерную компоненту
-приходит dispatch вместе с функциями-
-криейторами. Затем в теге MyPosts результаты
-вызова функций-криейтров присваиваются в 
-функции-колбеки, прописанные как атрибуты
-тега MyPosts. И далее эти функции, как 
-колбеки, сбрасываются в компоненту MyPosts.
-Далее см.файл MyPosts
-*/
+ 

@@ -17,19 +17,21 @@ import Post from "../post/Post";
 
 const MyPosts =(props)=> {
 
+  console.log(props)
+
   let newPostElement = React.createRef();
 
   let postsItems =  props.posts.map(
-    postItem =><Post id = {postItem.id} message ={postItem.message} likeCount = {postItem.likeCount} key = {postItem.id}/>);
+    postItem =><Post 
+    id = {postItem.id} 
+    message ={postItem.message} 
+    likeCount = {postItem.likeCount} 
+    key = {postItem.id}/>);
 
 
 let addMessage = () => {
-  
   props.addPost();
-
-  //props.dispatch({type:"ADD-POST"})
-//   let action = addPostCreator ();
-// props.dispatch(action)
+   
 }
 
 let postChange = () => {
@@ -37,9 +39,6 @@ let postChange = () => {
   let text = newPostElement.current.value;
   props.updateNewPostText(text);
 
-//props.dispatch({type:"UPDATE-NEW-POST-TEXT", newText: text});
-// let action = updateNewPostTextCreator (text);
-// props.dispatch(action)
   console.log(text);
 }
 

@@ -2,33 +2,37 @@ import React from 'react';
 import st from './Dialogues.module.css';
 import Dialogues from './Dialogues';
 import { addNewMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialogues-reducer';
+import StoreContext from '../../StoreContext';
 
 
 
-const DialoguesContainer =(props) => {
-debugger;
-let onSendMessage = ()=> {
-    props.dispatch (addNewMessageCreator())
-}
+const DialoguesContainer =(p) => {
 
-let onChangeMessageBody = (body)=> {
-props.dispatch (updateNewMessageBodyCreator(body))
-console.log(body)
-}
-
-    return(
-    <div className={st.dialogues}>
-      <Dialogues
-      updateNewMessage ={onChangeMessageBody}
-      addMessage={onSendMessage}
-      dialogues = {props.state.dialoguesPage.dialoguesArray} 
-      messages = {props.state.dialoguesPage.messagesArray}
-      newMessageBody = {props.state.dialoguesPage.newMessageBody}
-      />
-    </div>
-        
+    return( 
     
-    )
+    <StoreContext.Consumer>
+      { 
+      (store) => {
+
+let state = store.getState().dialoguesPage;
+
+     let onSendMessage = ()=> {
+     store.dispatch (addNewMessageCreator())
+    }
+
+     let onChangeMessageBody = (body)=> {
+      store.dispatch (updateNewMessageBodyCreator(body))
+    }
+
+  return <Dialogues
+     updateNewMessage ={onChangeMessageBody}
+     addMessage={onSendMessage}
+     dialogues = {state.dialoguesArray} 
+     messages = {state.messagesArray}
+     newMessageBody = {state.newMessageBody} />
+    }
+    }
+      </StoreContext.Consumer>)
 }
 
 export default DialoguesContainer;

@@ -1,15 +1,6 @@
 import profileReducer from "./profile-reducer";
 import dialoguesReducer from "./dialogues-reducer";
 
-// let ADD_POST = 'ADD-POST'
-
-// let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-
-// let SEND_MESSAGE = 'SEND-MESSAGE';
-
-// let UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE_BODY'
-
-
 let store  = {
     _state: {
        profilePage: {
@@ -60,47 +51,10 @@ let store  = {
       this._state.profilePage = profileReducer(this._state.profilePage, action);
       this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action)
 
-      /* Функция уведомления подписчика остается в файле state.js
-      */
       this._callSubscriber (this._state)
- 
    }
-/* Присваиваем в объекты  profilePage и dialoguesPage нашего _state
-разультаты действия функций  profileReducer и dialoguesReducer 
-( функции-редусеры прописаны в соответствующих файлах ), при этом
- данные объекты отправлены в параметры своих функций.
- То есть, по результату действия функций, мы получим измененные
- варианты данных объектов, которые сформируют новый state.
- Также в параметры функций отправлены action, который, напомним, 
- несет в себе type, для каждой фунции со своим определенным
- значением.
- И здесь же вызывается функция для уведомления подписчиков,
- _callSubscriber.
-*/
+
 }
 
 export default store;
 
-// export const addPostCreator = () => {
-//     return ( 
-//     {type: ADD_POST}
-//     )
-//   }
-  
-//   export const updateNewPostTextCreator = (text)=> {
-//     return (
-//       {type: UPDATE_NEW_POST_TEXT, newText: text}
-//     )
-//   }
-
-// export const addNewMessageCreator  = ()=> {
-//     return(
-//         {type: SEND_MESSAGE}
-//     )
-// }
-
-//   export const updateNewMessageBodyCreator = (body)=> {
-//     return(
-//         {type: UPDATE_NEW_MESSAGE_BODY, newBody: body}
-//     )
-//   }
