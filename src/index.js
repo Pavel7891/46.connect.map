@@ -17,7 +17,7 @@ const root = createRoot(container);
 
 
 
- let rerenderEntireTree =(state) => {
+ let rerenderEntireTree =(store) => {
   
  root.render(
 <BrowserRouter>
@@ -34,11 +34,11 @@ const root = createRoot(container);
 
 console.log(store)
 
- rerenderEntireTree (store.getState());
+ rerenderEntireTree (store);
 
 
- store.subscriber = () => {
+ store.subscribe ( (store) => {
 
-      rerenderEntireTree()
- }
+      rerenderEntireTree(store)
+ })
 

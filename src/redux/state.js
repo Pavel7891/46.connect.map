@@ -38,11 +38,11 @@ let store  = {
        return this._state;
    },
    
-   _callSubscriber () {
-       console.log('Render has been changed')
+   _callSubscriber  ()  {
+    console.log('Rerendere done')
    },
 
-   subscriber (observer) {
+   subscribe (observer) {
        this._callSubscriber = observer;
    },
    
@@ -51,7 +51,7 @@ let store  = {
       this._state.profilePage = profileReducer(this._state.profilePage, action);
       this._state.dialoguesPage = dialoguesReducer(this._state.dialoguesPage, action)
 
-      this._callSubscriber (this._state)
+      this._callSubscriber (this)
    }
 
 }
