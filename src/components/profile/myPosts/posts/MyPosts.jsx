@@ -17,7 +17,6 @@ import Post from "../post/Post";
 
 const MyPosts =(props)=> {
 
-  console.log(props)
 
   let newPostElement = React.createRef();
 

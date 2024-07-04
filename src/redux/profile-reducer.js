@@ -1,56 +1,50 @@
+let ADD_POST = "ADD-POST";
 
+let UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
-let ADD_POST = 'ADD-POST'
+const profileReducer = (profilePage, action) => {
+  console.log(action);
 
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+  switch (action.type) {
+    case ADD_POST: {
+      let newPost = {
+        id: 5,
+        message: profilePage.newPostText,
+        likeCount: 0,
+      };
 
-const profileReducer = (profilePage, action)=> {
+      let profilePageCopy = { ...profilePage };
+      profilePageCopy.postsArray = [...profilePage.postsArray];
+      profilePageCopy.postsArray.push(newPost);
+      profilePageCopy.newPostText = "";
 
-switch (action.type) {
-
-    case ADD_POST:
-        let newPost = {
-            id: 5,
-            message: profilePage.newPostText,
-            likeCount: 0
-        }
-        console.log('Adding Post')
-         profilePage.postsArray.push(newPost);
-         profilePage.newPostText = '';
-        
- 
-        return profilePage;
-
-    case UPDATE_NEW_POST_TEXT:
-         profilePage.newPostText = action.newText;
-
-        return profilePage;
-
-        default:
-        return profilePage;
+      return profilePageCopy;
     }
 
-}
+    //  profilePage.postsArray.push(newPost);
+    //  profilePage.newPostText = '';
 
+    // return profilePage;
 
-export default profileReducer
+    case UPDATE_NEW_POST_TEXT: {
+      let profilePageCopy = { ...profilePage };
+      profilePageCopy.newPostText = action.newText;
+
+      return profilePageCopy;
+    }
+
+    default:
+      return profilePage;
+  }
+};
+
+export default profileReducer;
 
 export const addPostCreator = () => {
-  console.log('addPost')
-    return ( 
-    {type: ADD_POST}
-    )
-  }
-  
-  export const updateNewPostTextCreator = (text)=> {
-    return (
-      {type: UPDATE_NEW_POST_TEXT, newText: text}
-    )
-  }
+  console.log("addPost");
+  return { type: ADD_POST };
+};
 
-
-
-
-
-
- 
+export const updateNewPostTextCreator = (text) => {
+  return { type: UPDATE_NEW_POST_TEXT, newText: text };
+};

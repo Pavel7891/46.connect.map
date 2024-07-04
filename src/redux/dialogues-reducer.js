@@ -3,25 +3,25 @@ let SEND_MESSAGE = 'SEND-MESSAGE';
 let UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE_BODY'
 
 
-const dialoguesReducer = (state, action)=> {
+const dialoguesReducer = (dialoguesPage, action)=> {
 
     if // action.type === 'SEND-MESSAGE'
     (action.type === SEND_MESSAGE) 
     { 
-   let newMessage = state.newMessageBody
+   let newMessage = dialoguesPage.newMessageBody
    
-    state.messagesArray.push( {message: newMessage});
-    state.newMessageBody = '';
+    dialoguesPage.messagesArray.push( {message: newMessage});
+    dialoguesPage.newMessageBody = '';
 
     }
 
 else if // action.type === 'UPDEATE-NEW-MESSAGE-BODY'
    (action.type === UPDATE_NEW_MESSAGE_BODY) 
    {
-    state.newMessageBody = action.newBody;
+    dialoguesPage.newMessageBody = action.newBody;
    }
 
-    return state
+    return dialoguesPage;
 }
 
 export default dialoguesReducer;
